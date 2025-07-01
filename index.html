@@ -277,32 +277,45 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .product-icon {
+        .product-image {
             height: 200px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
         }
 
-        .product-icon::before {
+        .product-image::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: shimmer 3s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.1), transparent 50%, rgba(255,255,255,0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        @keyframes shimmer {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(180deg); }
+        .product-card:hover .product-image::before {
+            opacity: 1;
+        }
+
+        .tobacco-bg {
+            background-image: url('./tobacco_leaves.jpeg'); /* Ensure the image is in the same directory */
+        }
+
+        .shrimp-bg {
+            background-image: url('./fresh_shrimps.jpeg'); /* Ensure the image is in the same directory */
+        }
+
+        .mango-bg {
+            background-image: url('./mangoes.jpeg'); /* Ensure the image is in the same directory */
+        }
+
+        .rice-bg {
+            background-image: url('./rice.avif');
         }
 
         .product-content {
@@ -692,36 +705,28 @@
             <h2 class="section-title fade-in">Our Premium Products</h2>
             <div class="products-grid">
                 <div class="product-card fade-in">
-                    <div class="product-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
+                    <div class="product-image tobacco-bg"></div>
                     <div class="product-content">
                         <h3 class="product-title">Tobacco Leaves</h3>
                         <p class="product-description">Premium quality tobacco leaves sourced from the finest plantations, processed with care to maintain their natural properties and flavor profile.</p>
                     </div>
                 </div>
                 <div class="product-card fade-in">
-                    <div class="product-icon">
-                        <i class="fas fa-fish"></i>
-                    </div>
+                    <div class="product-image shrimp-bg"></div>
                     <div class="product-content">
                         <h3 class="product-title">Fresh Shrimps</h3>
                         <p class="product-description">Fresh, high-quality shrimps from coastal waters, processed and frozen to maintain freshness and nutritional value for global markets.</p>
                     </div>
                 </div>
                 <div class="product-card fade-in">
-                    <div class="product-icon">
-                        <i class="fas fa-apple-alt"></i>
-                    </div>
+                    <div class="product-image mango-bg"></div>
                     <div class="product-content">
                         <h3 class="product-title">Mangoes</h3>
                         <p class="product-description">Exotic Indian mangoes known for their sweetness and rich flavor, carefully selected and packed to preserve their natural taste and aroma.</p>
                     </div>
                 </div>
                 <div class="product-card fade-in">
-                    <div class="product-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
+                    <div class="product-image rice-bg"></div>
                     <div class="product-content">
                         <h3 class="product-title">Basmati Rice</h3>
                         <p class="product-description">Aromatic Basmati rice with long grains and distinctive fragrance, sourced from premium farms and processed to international standards.</p>
