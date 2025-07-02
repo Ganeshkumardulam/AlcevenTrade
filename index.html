@@ -337,9 +337,13 @@
         }
 
         .logo-img {
-            height: 50px;
+            height: 40px;
             width: auto;
-            display: block;
+            display: inline-block;
+            vertical-align: middle;
+            object-fit: contain;
+            /* Add a little margin to separate from text */
+            margin-right: 10px;
         }
 
 
@@ -667,9 +671,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-           <a href="#home" class="logo">
-            <img src="./logo.jpg" alt="Alceven Logo" class="logo-img" style="vertical-align: middle;">
-            <span style="margin-left: 10px; font-weight: 700; font-size: 1.2rem; vertical-align: middle; color: #2c5282;">Alceven International</span>
+           <a href="#home" class="logo" style="display: flex; align-items: center;">
+            <img src="./logo.jpg" alt="Alceven Logo" class="logo-img">
+            <span style="font-weight: 700; font-size: 1.2rem; color: #2c5282;">Alceven International</span>
             </a>
 
             <ul class="nav-menu">
