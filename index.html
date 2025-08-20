@@ -73,6 +73,7 @@
             --border: #e5e7eb;
             --nav-bg: rgba(255,255,255,0.95);
             --nav-bg-scrolled: rgba(255,255,255,0.98);
+            --nav-height: 64px; /* standard navbar height */
             --link: #2c5282;
             --badge-bg: #e6fffa; /* teal-50 */
             --badge-text: #0f766e; /* teal-700 */
@@ -102,14 +103,14 @@
 
         /* Navigation */
         .navbar {
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
             background: var(--nav-bg);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
             backdrop-filter: saturate(140%) blur(8px);
             transition: background .2s ease;
+            height: var(--nav-height);
         }
 
         .navbar.navbar-scrolled { background: var(--nav-bg-scrolled); }
@@ -121,6 +122,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
         }
 
         .logo {
@@ -670,6 +672,7 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            :root { --nav-height: 70px; }
             .whatsapp-float { bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); right: 20px; }
             .nav-container { justify-content: flex-start; align-items: center; gap: 10px; }
             .theme-toggle { margin-left: auto; }
@@ -677,7 +680,7 @@
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: var(--nav-height);
                 flex-direction: column;
                 background-color: var(--card-bg);
                 width: 100%;
