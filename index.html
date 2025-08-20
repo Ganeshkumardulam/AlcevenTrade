@@ -21,8 +21,41 @@
     <link rel="icon" type="image/jpeg" href="./company_logo.jpg">
 
     <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#2c5282">
+
+    <!-- ✅ Canonical URL -->
+    <link rel="canonical" href="https://alceven.com/">
+
+    <!-- ✅ Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Alceven International Pvt Ltd",
+      "url": "https://alceven.com/",
+      "logo": "https://alceven.com/company_logo.jpg",
+      "description": "Exporter of agricultural commodities from India, focused on quality, compliance, and on-time delivery.",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+91-7993854461",
+        "contactType": "sales",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["English", "Hindi"]
+      }],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "12-5/7, Gouthaminagar",
+        "addressLocality": "Mancherial",
+        "postalCode": "504208",
+        "addressRegion": "Telangana",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
 
     <style>
         * {
@@ -182,7 +215,6 @@
             box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
         }
 
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -263,6 +295,17 @@
             transform: translateY(-5px);
         }
 
+        /* About badge */
+        .about-badge-wrap { text-align: center; }
+        .about-badge { display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background: #e6fffa; color: #0f766e; border-radius: 999px; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+
+        /* Prevent horizontal scroll on mobile */
+        html, body { max-width: 100%; overflow-x: hidden; }
+        img, video { max-width: 100%; height: auto; }
+        .hero { overflow: hidden; }
+        .section, .container { overflow-x: clip; }
+        .contact-content { overflow-x: hidden; }
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
@@ -308,12 +351,10 @@
             margin-right: 10px;
         }
 
-
         .product-content {
             padding: 2rem;
             text-align: center;
         }
-
 
         .product-title {
             font-size: 1.3rem;
@@ -538,7 +579,7 @@
             bottom: 30px;
             right: 30px;
             background: #25d366;
-            color: white;
+            color: #fff;
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -549,8 +590,13 @@
             text-decoration: none;
             box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
             transition: all 0.3s ease;
-            z-index: 1000;
+            z-index: 1100;
             animation: bounce 2s infinite;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         .whatsapp-float:hover {
@@ -558,14 +604,28 @@
             box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
         }
 
+        .whatsapp-float:focus-visible {
+            box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.35), 0 15px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float i { color: #fff; }
+
+        .whatsapp-float:active { background: #20b85a; color: #fff; }
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .whatsapp-float { animation: none; }
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .whatsapp-float { bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); right: 20px; }
+            .to-top { right: 90px; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); }
             .nav-menu {
                 position: fixed;
                 left: -100%;
@@ -643,15 +703,77 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Testimonials - removed */
+
+        /* FAQ */
+        .faq-item { 
+            border: 1px solid #e2e8f0; 
+            border-radius: 12px; 
+            margin-bottom: 1rem; 
+            overflow: hidden; 
+            background: #fff;
+        }
+
+        .faq-q { 
+            width: 100%; 
+            text-align: left; 
+            background: #f8fafc; 
+            border: none; 
+            padding: 1rem 1.25rem; 
+            font-weight: 600; 
+            color: #2c5282; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+
+        .faq-a { 
+            display: none; 
+            padding: 0 1.25rem 1rem; 
+            color: #555; 
+        }
+
+        .faq-item.active .faq-a { display: block; }
+
+        /* Modal */
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; align-items: flex-start; justify-content: center; z-index: 1100; padding: 16px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+        .modal.open { display: flex; }
+
+        .modal-card { background: #fff; width: 100%; max-width: 560px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); overflow: hidden; margin: calc(env(safe-area-inset-top, 0px) + 6vh) auto 6vh; max-height: 88dvh; }
+
+        .modal-header { padding: 1rem 1.25rem; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; display: flex; justify-content: space-between; align-items: center; }
+
+        .modal-body { padding: 1.5rem; overflow: auto; max-height: 70dvh; }
+
+        .modal-close { background: transparent; border: none; color: #fff; font-size: 1.25rem; cursor: pointer; }
+
+        @media (max-width: 480px) {
+            .modal-card { border-radius: 12px; max-width: 94%; margin: calc(env(safe-area-inset-top, 0px) + 4vh) auto 4vh; }
+            .modal-header { padding: 0.875rem 1rem; }
+            .modal-body { padding: 1rem; max-height: 72dvh; }
+            .modal-close { font-size: 1.35rem; }
+        }
+
+        /* Floating CTA + Back to Top */
+        .cta-float { position: fixed; bottom: 100px; right: 30px; background: #ff6b6b; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; text-decoration: none; box-shadow: 0 10px 25px rgba(255,107,107,0.3); transition: transform .2s; z-index: 1000; }
+
+        .cta-float:hover { transform: scale(1.06); }
+
+        .to-top { position: fixed; bottom: 30px; right: 100px; width: 46px; height: 46px; border-radius: 50%; background: #2c5282; color: #fff; display: none; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(44,82,130,0.35); z-index: 999; }
+
+        .to-top.show { display: flex; }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
-           <a href="#home" class="logo" style="display: flex; align-items: center;">
-            <img src="./company_logo.jpg" alt="Alceven Logo" class="logo-img">
-            <span style="font-weight: 700; font-size: 1.2rem; color: #2c5282;">Alceven International</span>
+            <a href="#home" class="logo" style="display: flex; align-items: center;">
+                <img src="./company_logo.jpg" alt="Alceven International logo" class="logo-img" loading="lazy" decoding="async" fetchpriority="high">
+                <span style="font-weight: 700; font-size: 1.2rem; color: #2c5282;">Alceven International</span>
             </a>
 
             <ul class="nav-menu">
@@ -659,6 +781,7 @@
                 <li><a href="#about" class="nav-link">About Us</a></li>
                 <li><a href="#products" class="nav-link">Commodities</a></li>
                 <li><a href="#partners" class="nav-link">Partners</a></li>
+                <li><a href="faq.html" class="nav-link">FAQs</a></li>
                 <li><a href="#contact" class="nav-link">Contact Us</a></li>
             </ul>
             <div class="mobile-menu">
@@ -674,7 +797,7 @@
         <div class="hero-content">
             <h1>Premium Export Solutions</h1>
             <p>Your trusted partner for quality agricultural and marine exports from India to the world</p>
-            <a href="#contact" class="cta-button">Start Trading With Us</a>
+            <a href="#" class="cta-button" id="openQuote">Start Trading With Us</a>
         </div>
     </section>
 
@@ -688,80 +811,27 @@
                     <p>Our commitment to excellence, quality assurance, and timely delivery has earned us recognition among global buyers. We maintain the highest standards of quality control and ensure compliance with international export regulations.</p>
                     <p>From the fertile lands of India to tables around the world, we bridge the gap between quality producers and international markets, fostering global trade relationships built on trust and reliability.</p>
                 </div>
-                <div class="about-stats fade-in">
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Countries Served</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">1000+</span>
-                        <span class="stat-label">Shipments Delivered</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">200+</span>
-                        <span class="stat-label">Commodities & Variants</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Quality Assured</span>
-                    </div>
+                <div class="about-badge-wrap fade-in">
+                    <span class="about-badge">100% Quality Assured</span>
                 </div>
             </div>
         </div>
     </section>
 
+    
+
+    <!-- FAQ moved to separate page: faq.html -->
+
     <!-- Products Section -->
     <section id="products" class="section">
         <div class="container">
             <h2 class="section-title fade-in">All Agricultural Products</h2>
-            <p class="fade-in" style="text-align:center; max-width:900px; margin: -1rem auto 2rem; color:#555;">
+            <p class="fade-in" style="text-align:center; max-width:900px; margin: 0 auto 1.5rem; color:#555;">
                 We export a comprehensive portfolio of agricultural commodities. Below are key categories we handle—reach out for a tailored sourcing list or specifications.
             </p>
-            <div class="products-grid">
-                <div class="product-card fade-in">
-                    <div class="product-content">
-                        <div class="product-icon"><i class="fas fa-wheat-awn"></i></div>
-                        <h3 class="product-title">Grains & Pulses</h3>
-                        <p class="product-description">Wheat, rice, maize, millet, sorghum, chickpeas, lentils, kidney beans and more.</p>
-                    </div>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-content">
-                        <div class="product-icon"><i class="fas fa-apple-whole"></i></div>
-                        <h3 class="product-title">Fruits & Vegetables</h3>
-                        <p class="product-description">Fresh and processed produce across seasonal varieties with cold-chain support.</p>
-                    </div>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-content">
-                        <div class="product-icon"><i class="fas fa-pepper-hot"></i></div>
-                        <h3 class="product-title">Spices & Herbs</h3>
-                        <p class="product-description">Chili, turmeric, cumin, coriander, cardamom, pepper, fenugreek, and more.</p>
-                    </div>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-content">
-                        <div class="product-icon"><i class="fas fa-oil-can"></i></div>
-                        <h3 class="product-title">Oilseeds & Nuts</h3>
-                        <p class="product-description">Sesame, groundnut, mustard, soybean, sunflower, cashew and allied products.</p>
-                    </div>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-content">
-                        <div class="product-icon"><i class="fas fa-fish"></i></div>
-                        <h3 class="product-title">Marine & Animal-Based</h3>
-                        <p class="product-description">Marine produce and animal-origin agri goods as per destination regulations.</p>
-                    </div>
-                </div>
-                <div class="product-card fade-in">
-                    <div class="product-content">
-                        <div class="product-icon"><i class="fas fa-box"></i></div>
-                        <h3 class="product-title">Processed & Others</h3>
-                        <p class="product-description">Flours, ready-to-cook, dehydrated items, and custom-processed consignments.</p>
-                    </div>
-                </div>
+            <div class="fade-in" style="max-width: 900px; margin: 0 auto; text-align: center; color: #444; font-size: 1.05rem;">
+                We export all major agricultural products from India — including staples like rice, wheat and pulses; spices and herbs; oilseeds and nuts; fresh and processed fruits and vegetables; cotton and allied agri commodities. Share your specifications and destination, and we’ll provide a tailored quote with the best shipping plan.
             </div>
-            
         </div>
     </section>
 
@@ -810,7 +880,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Address</h4>
-                            <p><a href="https://maps.app.goo.gl/CwDRUxwK7rxdAeu16" target="_blank" class="contact-link">12-5/7, Gouthaminagar<br>Mancherial, 504208<br>Telangana, India</a></p>
+                            <p><a href="https://maps.app.goo.gl/CwDRUxwK7rxdAeu16" target="_blank" rel="noopener" class="contact-link">12-5/7, Gouthaminagar<br>Mancherial, 504208<br>Telangana, India</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -819,7 +889,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Phone</h4>
-                            <p><a href="https://wa.me/917993854461" target="_blank" class="contact-link">+91 7993854461</a></p>
+                            <p><a href="https://wa.me/917993854461" target="_blank" rel="noopener" class="contact-link">+91 7993854461</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -831,33 +901,33 @@
                             <p><a href="mailto:alceven.trade@gmail.com" class="contact-link">alceven.trade@gmail.com</a></p>
                         </div>
                     </div>
-                    <a href="https://wa.me/917993854461" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/917993854461" class="whatsapp-btn" target="_blank" rel="noopener">
                         <i class="fab fa-whatsapp"></i>
                         Message Us on WhatsApp
                     </a>
                 </div>
                 <div class="contact-form fade-in">
                     <form action="https://formsubmit.co/alceven.trade@gmail.com" method="POST" target="_self">
-                    <input type="hidden" name="_next" value="https://alceven.com/thank-you.html">
-                    <input type="hidden" name="_captcha" value="false">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                        <input type="hidden" name="_next" value="https://alceven.com/thank-you.html">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -871,9 +941,45 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/917993854461" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/917993854461" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <!-- Floating Get Quote CTA -->
+    <button class="cta-float" id="floatQuote" aria-label="Request a Quote"><i class="fas fa-file-signature"></i></button>
+    <!-- Back to top -->
+    <button class="to-top" id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Quote Modal -->
+    <div class="modal" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="quoteTitle">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="quoteTitle">Request a Quote</h3>
+                <button class="modal-close" id="closeQuote" aria-label="Close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form action="https://formsubmit.co/alceven.trade@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="form-group">
+                        <label for="qname">Name</label>
+                        <input type="text" id="qname" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="qemail">Email</label>
+                        <input type="email" id="qemail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="qproduct">Product / Commodity</label>
+                        <input type="text" id="qproduct" name="commodity" placeholder="e.g., 1121 Basmati Rice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="qmessage">Quantity & Destination</label>
+                        <textarea id="qmessage" name="message" rows="4" placeholder="Expected quantity, destination port, timeline"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Get Quote</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Mobile menu toggle
@@ -932,9 +1038,36 @@
                 navbar.style.background = 'rgba(255, 255, 255, 0.95)';
             }
         });
+
+        // Quote Modal
+        const quoteModal = document.getElementById('quoteModal');
+        const openQuote = document.getElementById('openQuote');
+        const floatQuote = document.getElementById('floatQuote');
+        const closeQuote = document.getElementById('closeQuote');
+        function openModal(e){ if(e) e.preventDefault(); quoteModal.classList.add('open'); document.body.style.overflow='hidden'; }
+        function closeModal(){ quoteModal.classList.remove('open'); document.body.style.overflow=''; }
+        if(openQuote) openQuote.addEventListener('click', openModal);
+        if(floatQuote) floatQuote.addEventListener('click', openModal);
+        if(closeQuote) closeQuote.addEventListener('click', closeModal);
+        quoteModal.addEventListener('click', (e)=>{ if(e.target === quoteModal) closeModal(); });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const btn = item.querySelector('.faq-q');
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!expanded));
+                item.classList.toggle('active');
+            });
+        });
+
+        // Back to Top button
+        const toTop = document.getElementById('toTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) toTop.classList.add('show'); else toTop.classList.remove('show');
+        });
+        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
-</body>
-</html>
-   
+
 </body>
 </html>
