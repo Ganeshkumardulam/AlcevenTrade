@@ -38,7 +38,7 @@
 
     body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--bg); }
     .navbar { position: sticky; top: 0; background: var(--nav-bg); border-bottom: 1px solid var(--border); z-index: 100; backdrop-filter: saturate(140%) blur(8px); }
-    .nav-container { max-width: 1100px; margin: 0 auto; padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-container { max-width: 1100px; margin: 0 auto; padding: 0.75rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--link); text-decoration: none; }
     .logo img { height: 28px; width: 28px; border-radius: 6px; object-fit: cover; }
     .nav-links { display: flex; gap: 1rem; }
@@ -71,6 +71,10 @@
       .page-hero { padding: 48px 0; }
       .page-hero h1 { font-size: 1.6rem; }
       .nav-container, .container { padding-left: 1rem; padding-right: 1rem; }
+      .nav-container { flex-wrap: wrap; }
+      .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 6px; }
+      .nav-links a { font-size: 0.95rem; }
+      .theme-toggle { width: 100%; display: flex; justify-content: center; margin-top: 6px; }
     }
   </style>
 </head>
