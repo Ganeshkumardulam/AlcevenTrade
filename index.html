@@ -267,6 +267,9 @@
             padding: 0 2rem;
         }
 
+        /* Subtle divider between sections */
+        .section { border-top: 1px solid var(--border); }
+
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -423,7 +426,7 @@
 
         /* Partners Section */
         .partners {
-          background: var(--dark-section-bg);
+          background: var(--section-bg);
         }
 
         .partners-grid {
@@ -665,19 +668,9 @@
             .whatsapp-float { animation: none; }
         }
 
-        /* Extra safety: adjust floating elements spacing on small screens */
-        @media (max-width: 768px) {
-            .to-top { right: 86px; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); }
-        }
-
-        @media (max-width: 480px) {
-            .whatsapp-float { animation: none; }
-        }
-
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .whatsapp-float { bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); right: 20px; }
-            .to-top { right: 90px; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); }
             .nav-menu {
                 position: fixed;
                 left: -100%;
@@ -789,12 +782,7 @@
 
         .faq-item.active .faq-a { display: block; }
 
-        
-
-        /* Floating Back to Top */
-        .to-top { position: fixed; bottom: 30px; right: 100px; width: 46px; height: 46px; border-radius: 50%; background: #2c5282; color: #fff; display: none; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(44,82,130,0.35); z-index: 999; }
-
-        .to-top.show { display: flex; }
+                
 
         /* Theme toggle button */
         .theme-toggle {
@@ -858,9 +846,8 @@
             <h2 class="section-title fade-in">About Alceven International</h2>
             <div class="about-content">
                 <div class="about-text fade-in">
-                    <p>Alceven International Pvt Ltd is a leading export company based in Telangana, India, specializing in premium agricultural and marine products. With years of experience in international trade, we have established ourselves as a trusted partner for quality exports.</p>
-                    <p>Our commitment to excellence, quality assurance, and timely delivery has earned us recognition among global buyers. We maintain the highest standards of quality control and ensure compliance with international export regulations.</p>
-                    <p>From the fertile lands of India to tables around the world, we bridge the gap between quality producers and international markets, fostering global trade relationships built on trust and reliability.</p>
+                    <p>Alceven International exports high‑quality agricultural and marine commodities from India to global markets.</p>
+                    <p>We take care of end‑to‑end trade — sourcing, quality checks, documentation, and logistics — so your cargo arrives on time and fully compliant. Buyers choose us for consistent quality, transparent communication, and reliable shipping.</p>
                 </div>
                 <div class="about-badge-wrap fade-in">
                     <span class="about-badge">100% Quality Assured</span>
@@ -972,8 +959,7 @@
     <a href="https://wa.me/917993854461" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-    <!-- Back to top -->
-    <button class="to-top" id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+    
 
     <script>
         // Mobile menu toggle
@@ -1073,12 +1059,7 @@
             });
         });
 
-        // Back to Top button
-        const toTop = document.getElementById('toTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) toTop.classList.add('show'); else toTop.classList.remove('show');
-        });
-        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        
     </script>
 
 </body>
