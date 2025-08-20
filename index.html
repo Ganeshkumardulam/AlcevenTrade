@@ -6,13 +6,13 @@
     <title>Alceven International Pvt Ltd - Premium Export Solutions</title>
 
     <!-- ✅ SEO Meta Tags -->
-    <meta name="description" content="Alceven International Pvt Ltd exports premium quality Tobacco Leaves, Basmati Rice, Mangoes, and Shrimps worldwide. Trusted by global trade boards and partners.">
-    <meta name="keywords" content="Tobacco Leaves Exporter, Basmati Rice Export, Mango Exporters India, Shrimp Exporter, Alceven International Pvt Ltd, Indian Export Company">
+    <meta name="description" content="Alceven International Pvt Ltd exports a comprehensive range of agricultural commodities worldwide. Trusted by global partners for quality, compliance, and on-time delivery.">
+    <meta name="keywords" content="Agricultural Commodities Exporter, India Agri Export Company, Food Grains Pulses Spices Export, Fruits Vegetables Exporter, Global Trade, Alceven International Pvt Ltd">
     <meta name="author" content="Alceven International Pvt Ltd">
 
     <!-- ✅ Open Graph for Social Sharing -->
     <meta property="og:title" content="Alceven International Pvt Ltd - Premium Export Solutions">
-    <meta property="og:description" content="Exporting Tobacco, Rice, Mangoes, and Shrimps globally with trust, quality, and consistency.">
+    <meta property="og:description" content="Exporting all major agricultural commodities globally with trust, quality, and consistency.">
     <!-- <meta property="og:image" content="https://alceven.com/logo.jpg"> replace with actual hosted image if different -->
     <meta property="og:url" content="https://alceven.com">
     <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
 
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
     <style>
         * {
@@ -182,6 +182,7 @@
             box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
         }
 
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -295,46 +296,7 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .product-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.1), transparent 50%, rgba(255,255,255,0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .product-card:hover .product-image::before {
-            opacity: 1;
-        }
-
-        .tobacco-bg {
-            background-image: url('./tobacco_leaves.jpeg'); /* Ensure the image is in the same directory */
-        }
-
-        .shrimp-bg {
-            background-image: url('./fresh_shrimps.jpeg'); /* Ensure the image is in the same directory */
-        }
-
-        .mango-bg {
-            background-image: url('./mangoes.jpeg'); /* Ensure the image is in the same directory */
-        }
-
-        .rice-bg {
-            background-image: url('./rice.avif');
-        }
+        /* Removed old background-image based product cards (no longer used) */
 
         .logo-img {
             height: 40px;
@@ -363,6 +325,21 @@
         .product-description {
             color: #666;
             line-height: 1.6;
+        }
+
+        /* Product icon (for category-based cards) */
+        .product-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.25);
         }
 
         /* Partners Section */
@@ -680,7 +657,7 @@
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About Us</a></li>
-                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#products" class="nav-link">Commodities</a></li>
                 <li><a href="#partners" class="nav-link">Partners</a></li>
                 <li><a href="#contact" class="nav-link">Contact Us</a></li>
             </ul>
@@ -721,8 +698,8 @@
                         <span class="stat-label">Shipments Delivered</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">4</span>
-                        <span class="stat-label">Premium Products</span>
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Commodities & Variants</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">100%</span>
@@ -736,37 +713,55 @@
     <!-- Products Section -->
     <section id="products" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Our Premium Products</h2>
+            <h2 class="section-title fade-in">All Agricultural Products</h2>
+            <p class="fade-in" style="text-align:center; max-width:900px; margin: -1rem auto 2rem; color:#555;">
+                We export a comprehensive portfolio of agricultural commodities. Below are key categories we handle—reach out for a tailored sourcing list or specifications.
+            </p>
             <div class="products-grid">
                 <div class="product-card fade-in">
-                    <div class="product-image tobacco-bg"></div>
                     <div class="product-content">
-                        <h3 class="product-title">Tobacco Leaves</h3>
-                        <p class="product-description">Premium quality tobacco leaves sourced from the finest plantations, processed with care to maintain their natural properties and flavor profile.</p>
+                        <div class="product-icon"><i class="fas fa-wheat-awn"></i></div>
+                        <h3 class="product-title">Grains & Pulses</h3>
+                        <p class="product-description">Wheat, rice, maize, millet, sorghum, chickpeas, lentils, kidney beans and more.</p>
                     </div>
                 </div>
                 <div class="product-card fade-in">
-                    <div class="product-image shrimp-bg"></div>
                     <div class="product-content">
-                        <h3 class="product-title">Fresh Shrimps</h3>
-                        <p class="product-description">Fresh, high-quality shrimps from coastal waters, processed and frozen to maintain freshness and nutritional value for global markets.</p>
+                        <div class="product-icon"><i class="fas fa-apple-whole"></i></div>
+                        <h3 class="product-title">Fruits & Vegetables</h3>
+                        <p class="product-description">Fresh and processed produce across seasonal varieties with cold-chain support.</p>
                     </div>
                 </div>
                 <div class="product-card fade-in">
-                    <div class="product-image mango-bg"></div>
                     <div class="product-content">
-                        <h3 class="product-title">Mangoes</h3>
-                        <p class="product-description">Exotic Indian mangoes known for their sweetness and rich flavor, carefully selected and packed to preserve their natural taste and aroma.</p>
+                        <div class="product-icon"><i class="fas fa-pepper-hot"></i></div>
+                        <h3 class="product-title">Spices & Herbs</h3>
+                        <p class="product-description">Chili, turmeric, cumin, coriander, cardamom, pepper, fenugreek, and more.</p>
                     </div>
                 </div>
                 <div class="product-card fade-in">
-                    <div class="product-image rice-bg"></div>
                     <div class="product-content">
-                        <h3 class="product-title">Basmati Rice</h3>
-                        <p class="product-description">Aromatic Basmati rice with long grains and distinctive fragrance, sourced from premium farms and processed to international standards.</p>
+                        <div class="product-icon"><i class="fas fa-oil-can"></i></div>
+                        <h3 class="product-title">Oilseeds & Nuts</h3>
+                        <p class="product-description">Sesame, groundnut, mustard, soybean, sunflower, cashew and allied products.</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-content">
+                        <div class="product-icon"><i class="fas fa-fish"></i></div>
+                        <h3 class="product-title">Marine & Animal-Based</h3>
+                        <p class="product-description">Marine produce and animal-origin agri goods as per destination regulations.</p>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-content">
+                        <div class="product-icon"><i class="fas fa-box"></i></div>
+                        <h3 class="product-title">Processed & Others</h3>
+                        <p class="product-description">Flours, ready-to-cook, dehydrated items, and custom-processed consignments.</p>
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
